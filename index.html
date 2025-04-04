@@ -14,7 +14,7 @@
         <!-- Load external CSS styles -->
         <link rel="stylesheet" href="MedicalFormStyle.css">
     </head>
-    <body onload="setup()">
+    <body>
         <div id="header"> 
             <table width=100%>
                 <tr>
@@ -103,7 +103,6 @@
             <span id="suffix"></span> 
         </td>
         <td align="left">
-            <body onload="setup(); setMaxDate();"></body>
             <label for="dob">Date of Birth</label>
             <input type="date" 
                     id="dob" 
@@ -117,7 +116,7 @@
         <td align="left">
             <label for="gender">Gender</label>
             <select required name="sex" 
-                    id="sex" 
+                    id="gender" 
                     onblur="checksex()" 
                     required>
             <option value="male">Male</option>
@@ -172,7 +171,7 @@
                     pattern="^(\+?\d{1,3}[-.\s]?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$"
                     required
             >
-            <span class="error" id="phone-error">Invalid phone number.</span>
+            <span class="error" id="phone-error">Please input phone number.</span>
             <span id="phone_text">  
         </td>
     </tr>
@@ -212,8 +211,8 @@
             <input type="text" 
                     size="13" 
                     maxlength="13" 
-                    id="phone" 
-                    name="phone" 
+                    id="emergency_phone" 
+                    name="emergency_phone" 
                     placeholder="000-000-0000"
                     oninput="formatPhoneNumber(this)"
                     pattern="^(\+?\d{1,3}[-.\s]?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$"
@@ -317,48 +316,48 @@
     </tr class="form">
         <tr class="form">
             <td align="left">
-                <label for="new_patient">New Patient</label required>
+                <label>New Patient</label required>
                     <input type="radio" 
-                            id="new_patient" 
-                            name="new_patient" 
+                            id="new_patient_yes" 
+                            name="new_patient_yes" 
                             value="Yes"
                             required
                     >Yes
                     <input type="radio" 
-                            id="new_patient" 
-                            name="new_patient" 
+                            id="new_patient_no" 
+                            name="new_patient_no" 
                             value="No"
                             required
                     >No
                 <span id="new_patient"></span>
             </td>
             <td align="left">
-                <label for="insuranced">Got Insurance</label required>
+                <label>Got Insurance</label required>
                 <input type="radio" 
-                        id="insuranced" 
-                        name="insuranced" 
+                        id="insuranced_yes" 
+                        name="insuranced_yes" 
                         value="Yes"
                         required
                 >Yes
                 <input type="radio" 
-                        id="insuranced" 
-                        name="insuranced" 
+                        id="insuranced_no" 
+                        name="insuranced_no" 
                         value="No"
                         required
                 >No
                 <span id="insuranced"></span>
             </td>
             <td align="left">
-                <label for="vaccinated">COVID vaccinated</label required>
+                <label>COVID vaccinated</label required>
                     <input type="radio" 
-                            id="vaccinated" 
-                            name="vaccinated" 
+                            id="vaccinated_yes" 
+                            name="vaccinated_yes" 
                             value="Yes"
                             required
                     >Yes
                     <input type="radio" 
-                            id="vaccinated" 
-                            name="vaccinated" 
+                            id="vaccinated_no" 
+                            name="vaccinated_no" 
                             value="No"
                             required
                     >No
@@ -492,7 +491,7 @@
                             list="increments"
                 > 
                 10&nbsp;<br>
-                <label for="how_you_feel"> You feeling like a </label>
+                <label id="how_you_feel"> You feeling like a </label>
                 <span id="feeling_scale"></span>
                 <datalist id="increments">
                             <option value="1"></option>
@@ -551,7 +550,7 @@
             </td>
         <tr class="form">
                 <td align="right">
-                <label for="password">Password</label>
+                <label for="password1">Password</label>
             </td>
             <td>
                 <input type="password" 
@@ -632,7 +631,7 @@
 
 <!-- Load external JavaScript -->
  <!--placeholder-->
-<script src="homework2.js"></script>
+<script src="homework3.js"></script>
 
 <script>
     const d = new Date();

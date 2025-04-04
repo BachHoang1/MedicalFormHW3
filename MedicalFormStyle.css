@@ -145,17 +145,7 @@ color:black;
   color: red;
   display: none;
 }
-.feeling-low {
-  color: red;
-}
 
-.feeling-medium {
-  color: orange;
-}
-
-.feeling-high {
-  color: green;
-}
 .styled-button {
   background-color: rgb(47, 202, 237); /* Change this to your desired background color */
   color: white; /* Change this to your desired text color */
@@ -167,6 +157,14 @@ color:black;
   margin: 5px;
 }
 
+.password_message5 {
+  color: red;
+  display: none;
+}
+.password_message1 {
+  color: red;
+  display: none;
+}
 .styled-button:hover {
   background-color: #0056b3; /* Darker green on hover */
 }

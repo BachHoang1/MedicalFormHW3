@@ -222,25 +222,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   selfRateOutput.innerHTML = selfRateSlider.value;
 
-  selfRateSlider.oninput = function() {
-      selfRateOutput.innerHTML = this.value;
-  }
+  selfRateSlider.addEventListener('input', () => {
+    const scaleValue = selfRateSlider.value;
+    selfRateOutput.innerHTML = scaleValue;
+    selfRateSlider.style.color = getColorBasedOnScale(scaleValue);;
+    selfRateOutput.style.color = getColorBasedOnScale(scaleValue);
+    selfRateValue.style.color = getColorBasedOnScale(scaleValue);
+  });
 
-  function changeFeelingScaleColor(value) {
-    const feelingScale = document.getElementById('feeling_scale');
-    const howYouFeel = document.getElementById('how_you_feel');
-    feelingScale.classList.remove('feeling-low', 'feeling-medium', 'feeling-high');
+  function getColorBasedOnScale(value) {
     if (value < 3) {
-      feelingScale.classList.add('feeling-low');
-    } else if (value < 7) {
-      feelingScale.classList.add('feeling-medium');
+      return 'red';
+    }
+    else if (value < 6) {
+      return 'orange';
     } else {
-      feelingScale.classList.add('feeling-high');
+      return 'green';
     }
   }
-
-  changeFeelingScaleColor(selfRateSlider.value);
-  changeFeelingScaleColor(selfRateValue.value);
 });
 
 /* 
@@ -317,7 +316,7 @@ function passwordentry()
     document.getElementById("password_message2").innerHTML = passwordoutput;
   // Validate numbers
    if(passwordinput.search(/[0-9]/)<0 ) {   
-    passwordoutput = "Entera At least 1 number";
+    passwordoutput = "Entera at least 1 number";
     errorTracker.setError();
     } else {
     passwordoutput = "";
@@ -325,12 +324,12 @@ function passwordentry()
     document.getElementById("password_message3").innerHTML = passwordoutput;
     // Validate special chars
    if(passwordinput.search(/[!\@#\$%&*\-_\\.+\(\)]/)<0 ) {   
-    passwordoutput = "Enter At least 1 special character";
+    passwordoutput = "Enter at least 1 special character";
     errorTracker.setError();
     } else {
     passwordoutput = "";
     }
-    document.getElementById("password_message4").innerHTML = passwordoutput;
+    document.getElementById("password_message4"). = passwordoutput;
   // Validate length
   if(passwordinput.length < 8) {
       passwordoutput = "Enter a Minimum 8 characters";
@@ -363,7 +362,6 @@ submitButton.addEventListener('click', function() {
   textInput.value = lowercaseText;
 
   passwordentry();
-  checkpassword2();
   if (errorTracker.isError()) {
     alert("Please fix the indicated errors!");
   }else {
